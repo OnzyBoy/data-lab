@@ -1,0 +1,305 @@
+/* === Data Lab — palette mirrors aristo-portfolio === */
+:root {
+  --bg: #18191A;
+  --surface: #23272F;
+  --surface-alt: #20242a;
+  --border: #35363a;
+  --text: #F4F4F4;
+  --text-muted: #b0b3b8;
+  --accent: #95ADCF;
+  --accent-hover: #AEC3E0;
+  --primary: #4A90E2;
+  --secondary: #7B68EE;
+  --accent-purple: #6C63FF;
+  --light-purple: #A594F9;
+  --gradient-primary: linear-gradient(135deg, #4A90E2 0%, #7B68EE 100%);
+  --gradient-accent: linear-gradient(135deg, #6C63FF 0%, #A594F9 100%);
+}
+
+/* Hide Streamlit chrome we don't need */
+#MainMenu { visibility: hidden; }
+footer { visibility: hidden; }
+
+/* Smooth section feel */
+.block-container {
+  padding-top: 5rem !important; /* Increased space below top nav */
+  padding-bottom: 4rem !important;
+  max-width: 1200px;
+}
+
+/* Hero */
+.hero {
+  padding: 2.25rem 2rem;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #23272F 0%, #18191A 100%);
+  border: 1px solid var(--border);
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.18);
+  margin-bottom: 2rem;
+}
+.hero h1 {
+  margin: 0 0 0.5rem 0;
+  font-size: 2.2rem;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.hero h3 {
+  color: var(--text);
+  font-size: 1.3rem;
+  font-weight: 500;
+  margin: 0 0 0.8rem 0;
+}
+.hero p {
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  margin: 0 0 1.2rem 0;
+  line-height: 1.55;
+}
+.hero .hero-links {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+.hero a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+}
+.hero a:hover { color: var(--accent-hover); }
+.hero .divider { color: var(--border); }
+
+/* Project card */
+.project-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.4rem 1.4rem 1.2rem 1.4rem;
+  height: 100%;
+  min-height: 360px;
+  margin-bottom: 1rem;
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+  display: flex;
+  flex-direction: column;
+}
+.project-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--accent);
+  box-shadow: 0 12px 28px rgba(149, 173, 207, 0.18);
+}
+.project-card .emoji {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+.project-card h3 {
+  color: var(--text);
+  margin: 0 0 0.6rem 0;
+  font-size: 1.15rem;
+  min-height: 2.8em; /* Uniform title height (2 lines) */
+  line-height: 1.3;
+}
+.project-card p {
+  color: var(--text-muted);
+  font-size: 0.92rem;
+  line-height: 1.55;
+  margin: 0 0 1rem 0;
+  flex-grow: 1; /* Pushes tags down */
+  min-height: 7.5em; /* Uniform summary height (~5 lines) */
+}
+.project-card .tags {
+  margin-top: auto;
+  padding-top: 0.5rem;
+  min-height: 4.5em; /* Uniform tag height (2 lines) */
+}
+.project-card .tag {
+  display: inline-block;
+  padding: 0.22rem 0.6rem;
+  border-radius: 999px;
+  background: var(--surface-alt);
+  color: var(--accent);
+  font-size: 0.72rem;
+  margin: 0 0.35rem 0.4rem 0;
+  border: 1px solid var(--border);
+}
+
+/* Certificate card */
+.cert-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.1rem;
+  height: 400px; /* Fixed uniform height */
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s, border-color 0.2s;
+  margin-bottom: 1rem;
+}
+.cert-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent);
+}
+.cert-thumb {
+  width: 100%;
+  height: 180px;
+  min-height: 180px; /* Force image box size */
+  border-radius: 10px;
+  background: #20242a;
+  border: 1px solid var(--border);
+  overflow: hidden;
+  margin-bottom: 0.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cert-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.cert-thumb.placeholder {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  border-style: dashed;
+  text-align: center;
+  padding: 1rem;
+}
+.cert-card h4 {
+  color: var(--text);
+  margin: 0 0 0.25rem 0;
+  font-size: 1rem;
+  min-height: 2.8em; /* Ensure title height is uniform */
+  line-height: 1.4;
+}
+.cert-card .issuer {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  margin-bottom: 0.6rem;
+}
+.cert-card .cred-id {
+  display: inline-block;
+  font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  font-size: 0.72rem;
+  background: var(--surface-alt);
+  color: var(--accent);
+  padding: 0.2rem 0.55rem;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  margin-bottom: 0.6rem;
+}
+.cert-card .action-wrap {
+  margin-top: auto; /* Push buttons/badges to bottom */
+}
+.cert-card .verify-btn,
+.cert-card .pending-badge {
+  display: inline-block;
+  padding: 0.4rem 0.85rem;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+.cert-card .verify-btn {
+  background: var(--accent);
+  color: #18191A;
+  transition: background 0.2s;
+}
+.cert-card .verify-btn:hover { background: var(--accent-hover); }
+.cert-card .pending-badge {
+  background: var(--surface-alt);
+  color: var(--text-muted);
+  border: 1px dashed var(--border);
+}
+
+/* Section headings */
+.section-title {
+  color: var(--text);
+  font-size: 1.45rem;
+  margin: 2.25rem 0 2rem 0 !important;
+  padding-bottom: 0.8rem;
+  border-bottom: 1px solid var(--border);
+  display: block;
+}
+
+/* Footer */
+.lab-footer {
+  margin-top: 3rem;
+  padding: 1.25rem;
+  text-align: center;
+  border-top: 1px solid var(--border);
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+.lab-footer a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+}
+.lab-footer a:hover { color: var(--accent-hover); }
+
+/* Streamlit button polish */
+.stButton > button {
+  background: var(--accent);
+  color: #18191A;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: background 0.2s, transform 0.15s;
+}
+.stButton > button:hover {
+  background: var(--accent-hover);
+  color: #18191A;
+  transform: translateY(-1px);
+}
+
+/* Metric cards */
+[data-testid="stMetric"] {
+  background: var(--surface);
+  padding: 1rem;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  min-height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+[data-testid="stMetricLabel"] {
+  white-space: normal !important;
+  word-wrap: break-word !important;
+  overflow: visible !important;
+  line-height: 1.2 !important;
+  margin-bottom: 0.25rem !important;
+}
+[data-testid="stMetricValue"] {
+  white-space: normal !important;
+  word-wrap: break-word !important;
+  overflow: visible !important;
+  font-size: 1.8rem !important;
+}
+
+/* Expander */
+.streamlit-expanderHeader {
+  background: var(--surface);
+  border-radius: 8px;
+}
+
+/* Sidebar tweaks */
+[data-testid="stSidebar"] {
+  background: var(--surface);
+  border-right: 1px solid var(--border);
+}
+.sidebar-logo-container {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 1.5rem;
+  padding: 0 0 1rem 0;
+}
+.sidebar-logo {
+  max-width: 80px; /* reasonably small */
+  height: auto;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+.sidebar-logo:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
